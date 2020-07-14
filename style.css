@@ -1,0 +1,36 @@
+.header {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    padding:10px;
+    font-size:large;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    left:0;
+}
+.container-fluid{
+    background-color: turquoise;
+}
+.main {
+    padding:10% 4%;
+}
+.Qual{
+    min-width: 150px;
+    margin:10px;
+    background-color:black;
+    text-align:center;
+    display : inline;
+    color: white;
+    padding: 5px 5px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
