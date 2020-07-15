@@ -34,9 +34,19 @@ $(document).ready(function() {
     }).then(function(data) {
         data.sort(dynamicSort("Quality"));
         baseLines=data;
-        baseLinesLength=(baseLines.length-1);
+        console.log(baseLines);
+        baseLinesLength=baseLines.length;
+        console.log(baseLinesLength);
         for (i = 0; i<baseLinesLength; i++) {
-            $(".main").append("<button type='button' class='Qual' id='qual_"+i+"' onclick='labelfunc("+i+")'>"+baseLines[i].Quality+"</button>")
+            $(".main").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="labelfunc('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle" id="qualmeaning_'+i+'" onclick="labelfuncmeaning('+i+')"></button></div>');
         }
     });
 });
+
+//------------------------------------------------------------------------------------------------------
+
+
+function labelfunc(i){
+    selected++;
+    $("#currentCount").text(selected+levelCount());
+}
