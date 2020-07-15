@@ -47,6 +47,18 @@ $(document).ready(function() {
 
 
 function labelfunc(i){
-    selected++;
+    var property = document.getElementById('qual_'+i);
+    if(baseLines[i].Status==0)
+    {   property.style.backgroundColor="#404040"
+        baseLines[i].Status=1;
+        selected++;
+        $("#currentCount").text(selected+levelCount());
+    }
+    else if(baseLines[i].Status==1)
+    {
+        property.style.backgroundColor="#0000FF"
+        baseLines[i].Status=0;
+    selected--;
     $("#currentCount").text(selected+levelCount());
+    }
 }
