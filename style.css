@@ -8,9 +8,9 @@
     font-weight: bold;
     color: white;
     left:0;
-    z-index: 1;
+    z-index: 2;
 }
-.container-fluid{
+html,body {
     background-color: turquoise;
 }
 .main {
@@ -19,7 +19,6 @@
 .QualMeaning {
     margin:10px;
     margin-left: 0px;
-    display : inline;
     padding: 5px 5px;
     background-color: blue;
     color:cornsilk;
@@ -29,12 +28,26 @@
     margin:10px;
     margin-right: 0px;
     text-align:center;
-    display : inline;
     padding: 5px 5px;
     background-color: blue;
     color: cornsilk;
 }
-
+#sortable_quality {
+    list-style-type: none;
+}
+#sortable_quality li {
+    text-align: center;
+    height: 50px;
+    max-width: 80%;
+    background: black;
+    border: 1px solid white;
+    color:white;
+    font-size: x-large;
+    padding-top: 5px;
+}
+#orderit ,#FinalTable ,#Submit_Final{
+    display: none;
+}
 .footer {
     position: fixed;
     left: 0;
