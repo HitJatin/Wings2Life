@@ -15,22 +15,31 @@ html,body {
 }
 .main {
     padding:10% 4%;
+    
 }
 .QualMeaning {
-    margin:10px;
+    margin-top:20px;
     margin-left: 0px;
+    margin-right:10px;
     padding: 5px 5px;
     background-color: blue;
     color:cornsilk;
+    
 }
 .Qual{
     min-width: 150px;
-    margin:10px;
+    margin-top:20px;
     margin-right: 0px;
+    margin-left: 10px;
     text-align:center;
     padding: 5px 5px;
     background-color: blue;
     color: cornsilk;
+}
+
+#dropdown{
+    
+    padding:5px;
 }
 #sortable_quality {
     list-style-type: none;
@@ -42,7 +51,7 @@ html,body {
     background: black;
     border: 1px solid white;
     color:white;
-    font-size: x-large;
+    font-size: x-large; 
     padding-top: 5px;
 }
 #orderit ,#FinalTable ,#Submit_Final{
@@ -57,3 +66,18 @@ html,body {
     color: white;
     text-align: center;
  }
+
+ 
+
+ @media only screen and  (max-width:  632px) {
+    .main {
+        padding:30% 3%;
+    }
+    .Qual{
+        margin-left: 5px;
+        width:130px;
+    }
+    .QualMeaning{
+        margin-right: 5px;
+    }
+}

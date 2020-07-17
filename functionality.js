@@ -2,10 +2,19 @@ var baseLines,baseLinesLength,i,selected=0,level=1;
 var configuration = {
 	branding: {"name" : "XYZ cmpany" , "title" : "slect you codes"},
 	levels : 3,
-	levelDetails: [{count:8 ,rule: "min"}, 
+	levelDetails: [{count:8 ,rule: "minimum"}, 
 				   {count:8, rule: "exact"},
                    {count:6, rule: "exact"}]
 }
+
+//-------------------------------------------------------------------------------------------
+
+function popupMsg(){
+    $('#modalmsg').text('Select '+ configuration.levelDetails[level-1].rule + ' '+ configuration.levelDetails[level-1].count + ' Baselines')
+    $("#myModal").modal('show');
+}
+popupMsg();
+
 
 //-------------------------------------------------------------------------------------------
 //Calling API and creating all the baseLines buttons with values
@@ -17,7 +26,7 @@ $(document).ready(function() {
         baseLines=data;
         baseLinesLength=baseLines.length;
         for (i = 0; i<baseLinesLength; i++) {
-            $(".main").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu">'+baseLines[i].Meaning+'</div></div>');
+            $("#btn_grp").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu" id="dropdown">'+baseLines[i].Meaning+'</div></div>');
             $("#currentCount").text(selected+levelCount());
 
         }
@@ -42,9 +51,14 @@ function submitInitial(){
             }
         }
         if(configuration.levels>=level)
+        {
         rebootAdd();
+        popupMsg();
+        }
         else
+        {
         sumbitOrdering();
+        }
  
     }
  }
@@ -133,7 +147,7 @@ function rebootRemove(){
 function rebootAdd(){
     for (i = 0; i<baseLinesLength; i++) {
         if(baseLines[i].Level==level)
-        $(".main").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu">'+baseLines[i].Meaning+'</div></div>');
+        $("#btn_grp").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu">'+baseLines[i].Meaning+'</div></div>');
     }
    
 
@@ -144,7 +158,7 @@ function rebootAdd(){
 function levelCheck()
 {
     
-    if(configuration.levelDetails[level-1].rule=="min")
+    if(configuration.levelDetails[level-1].rule=="minimum")
     {if(configuration.levelDetails[level-1].count<=selected)
     return "true";
     }
