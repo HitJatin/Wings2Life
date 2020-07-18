@@ -1,3 +1,6 @@
+#Submit_Initial, #Submit_Final {
+    z-index: 10000;
+}
 .header {
     position: fixed;
     background-color: black;
@@ -20,17 +23,15 @@ html,body {
 .QualMeaning {
     margin-top:20px;
     margin-left: 0px;
-    margin-right:10px;
     padding: 5px 5px;
     background-color: blue;
     color:cornsilk;
     
 }
 .Qual{
-    min-width: 150px;
+    width: 150px;
     margin-top:20px;
     margin-right: 0px;
-    margin-left: 10px;
     text-align:center;
     padding: 5px 5px;
     background-color: blue;
@@ -38,7 +39,6 @@ html,body {
 }
 
 #dropdown{
-    
     padding:5px;
 }
 #sortable_quality {
@@ -66,18 +66,21 @@ html,body {
     color: white;
     text-align: center;
  }
-
+#btn_grp {
+    justify-content: center;
+}
  
 
- @media only screen and  (max-width:  632px) {
+ @media only screen and  (max-width:  1100px) {
     .main {
-        padding:30% 3%;
+        padding:100px 3%;
     }
     .Qual{
-        margin-left: 5px;
-        width:130px;
+        min-width: 80px;
+        margin-left: 0px;
+        width:95px;
     }
     .QualMeaning{
-        margin-right: 5px;
+        margin-right: 0px;
     }
 }

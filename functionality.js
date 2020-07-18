@@ -26,7 +26,7 @@ $(document).ready(function() {
         baseLines=data;
         baseLinesLength=baseLines.length;
         for (i = 0; i<baseLinesLength; i++) {
-            $("#btn_grp").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu" id="dropdown">'+baseLines[i].Meaning+'</div></div>');
+            $("#btn_grp").append('<div class="btn-group col-sm-2"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu" id="dropdown">'+baseLines[i].Meaning+'</div></div>');
             $("#currentCount").text(selected+levelCount());
 
         }
@@ -41,7 +41,6 @@ function submitInitial(){
         rebootRemove();
         selected = 0 ;
         level++;
-        $("#currentCount").text(selected+levelCount());
         for(i=0;i<baseLinesLength;i++)
         {
             if(baseLines[i].Status==1)
@@ -54,6 +53,7 @@ function submitInitial(){
         {
         rebootAdd();
         popupMsg();
+        $("#currentCount").text(selected+levelCount());
         }
         else
         {
@@ -106,7 +106,10 @@ function baseLine(i){
 //-----------------------------functions used within another functions-----------------------
 
 function levelCount(){
-    return level==1?"/24+":level==2?"/24":"/6";
+    var temp="";
+    if (configuration.levelDetails[level-1].rule=="minimum")
+    temp="+";
+    return "/"+configuration.levelDetails[level-1].count+temp;
 }
 
 //--------------------------------------------------------------------------------------
@@ -147,7 +150,7 @@ function rebootRemove(){
 function rebootAdd(){
     for (i = 0; i<baseLinesLength; i++) {
         if(baseLines[i].Level==level)
-        $("#btn_grp").append('<div class="btn-group"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu">'+baseLines[i].Meaning+'</div></div>');
+        $("#btn_grp").append('<div class="btn-group col-sm-2"><button type="button" class="Qual  btn " id="qual_'+i+'" onclick="baseLine('+i+')">'+baseLines[i].Quality+'</button><button type="button" class="QualMeaning btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="qualmeaning_'+i+'"><span class="caret"></span></button><div class="dropdown-menu">'+baseLines[i].Meaning+'</div></div>');
     }
    
 
