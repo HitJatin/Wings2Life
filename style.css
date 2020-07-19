@@ -1,5 +1,11 @@
-#Submit_Initial, #Submit_Final {
-    z-index: 10000;
+#Submit_Initial, #Submit_Final ,.header,.footer{
+    z-index: 1000;
+}
+.col-sm-2 {
+    min-height: 0px;
+}
+.dropdown-menu {
+    z-index: 990;
 }
 .header {
     position: fixed;
@@ -11,7 +17,6 @@
     font-weight: bold;
     color: white;
     left:0;
-    z-index: 2;
 }
 html,body {
     background-color: turquoise;
@@ -62,8 +67,6 @@ html,body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: red;
-    color: white;
     text-align: center;
  }
 #btn_grp {
